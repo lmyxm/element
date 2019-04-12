@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>vue组件获取验证码倒计时-60</title>
-</head>
-<body>
-	<i class="ac" v-show="!show_yzm" >{{text_yzm}} </i>
-	<i class="ac" v-show="show_yzm" @click="getCode">获取验证码</i>
-</body>
-<script type="text/javascript">
-	data(){
+<template>
+     <div>
+        <i class="ac" v-show="!show_yzm" >{{text_yzm}} </i>
+    	<i class="ac" v-show="show_yzm" @click="getCode">获取验证码</i>
+     </div>
+</template>
+
+<script>
+export default {
+    name:'',
+    data(){
         return {
             show_yzm: true,
             text_yzm: '',
             timer: null,
         }
     },
-	getCode(){
+    created(){},
+    methods:{   
+       getCode(){
             const TIME_COUNT = 60;
             if (!this.timer) {
             this.text_yzm = TIME_COUNT;
@@ -34,5 +33,6 @@
             }, 1000)
             }
         } 
+    }
+}
 </script>
-</html>
